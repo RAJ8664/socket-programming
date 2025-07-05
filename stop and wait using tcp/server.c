@@ -5,9 +5,7 @@
 #include<arpa/inet.h>
 #include<unistd.h>
 
-
 int count;
-
 int main() {
     count = 0;
     int server_fd = socket(AF_INET, SOCK_STREAM, 0);
@@ -27,7 +25,6 @@ int main() {
     while (1) {
         read(client_fd, toreceive, sizeof(toreceive));
         printf("Frame received:%s\n", toreceive);
-
         if (count % 4 == 0) {
             printf("Incorrect ack :Resend the frame:\n");
             printf("Frame resent:%s\n", toreceive);
